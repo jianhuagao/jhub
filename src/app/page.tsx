@@ -23,13 +23,22 @@ export default function Home() {
             key={proj.name}
             className="group relative flex-shrink-0 transform transition-all duration-500 ease-in-out"
           >
-            <div className="h-[440px] overflow-hidden grid grid-rows-[1fr_auto] w-[500px] rounded-2xl border border-white/20 bg-white/5 shadow-lg backdrop-blur-lg">
+            <div className="h-[440px] overflow-hidden grid grid-rows-[1fr_auto] max-w-[500px] w-full rounded-2xl border border-white/20 bg-white/5 shadow-lg backdrop-blur-lg">
               <div className="relative m-4 flex w-full flex-col gap-1 overflow-hidden rounded-xl border border-white/10 shadow-2xl">
-                <iframe
-                  src={proj.href}
-                  className="w-full h-full"
-                  loading="lazy"
-                ></iframe>
+                <div
+                  className="absolute origin-top-left scale-[0.3] group-hover:scale-[0.4] duration-500 ease-in-out transition-all"
+                  style={{
+                    // transform: "scale(0.3)", // 缩小比例 30%
+                    width: "333.33%", // = 100% / 0.3
+                    height: "333.33%",
+                  }}
+                >
+                  <iframe
+                    src={proj.href}
+                    className="w-full h-full"
+                    loading="lazy"
+                  />
+                </div>
                 <div className="absolute inset-0 flex items-center justify-center bg-black/30 opacity-0 hover:opacity-100 transition-opacity duration-300">
                   <a
                     href={proj.href}
@@ -55,14 +64,14 @@ export default function Home() {
                   </a>
                 </div>
               </div>
-              <div className="bg-gradient-to-t from-black/50 to-transparent p-4">
-                <h3 className="text-lg font-bold text-white">{proj.name}</h3>
-                <p className="text-sm text-gray-300">{proj.desc}</p>
+              <div className="bg-gradient-to-t from-black/50 to-transparent p-5">
+                <h3 className="text-2xl font-bold text-white">{proj.name}</h3>
+                <p className="text-xs text-gray-300">{proj.desc}</p>
                 <div className="flex items-center gap-2 mt-3">
                   {proj.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="relative inline-block rounded-full bg-white/70 px-3.5 py-1.5 text-xs text-purple-800 shadow ring-1 shadow-black/10 ring-white/30 backdrop-blur-md dark:bg-[rgba(255,255,255,0.15)] dark:text-white dark:shadow-white/10 dark:ring-white/20"
+                      className="relative inline-block truncate rounded-full bg-white/70 px-3 py-1 text-xs text-purple-800 shadow ring-1 shadow-black/10 ring-white/30 backdrop-blur-md dark:bg-[rgba(255,255,255,0.15)] dark:text-white dark:shadow-white/10 dark:ring-white/20"
                     >
                       <span className="relative z-10">{tag}</span>
                     </span>
