@@ -13,8 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "jhubSpace",
-  description: "jhub-Space",
+  title: "JhubSpace",
+  description: "Jhub-Space",
 };
 
 export default function RootLayout({
