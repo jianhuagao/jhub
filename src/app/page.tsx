@@ -1,44 +1,43 @@
+import Image from 'next/image';
+
 const config = [
   {
-    name: "Twinkle",
-    href: "https://twinkle.jhub.space",
-    desc: "Free open source Tailwind CSS component library",
-    tags: ["react", "nextjs", "component-lib", "tailwindcss"],
+    name: 'Twinkle',
+    href: 'https://twinkle.jhub.space',
+    desc: 'Free open source Tailwind CSS component library',
+    tags: ['react', 'nextjs', 'component-lib', 'tailwindcss']
   },
   {
-    name: "Libran",
-    href: "https://libran.jhub.space",
-    desc: "Libran is a Next.js and TwinkleUI website example in TypeScript.",
-    tags: ["react", "nextjs", "design", "tailwindcss"],
-  },
+    name: 'Libran',
+    href: 'https://libran.jhub.space',
+    desc: 'Libran is a Next.js and TwinkleUI website example in TypeScript.',
+    tags: ['react', 'nextjs', 'design', 'tailwindcss']
+  }
 ];
 
 export default function Home() {
+  const avatarUrl = getGithubAvatar('jianhuagao', 80);
   return (
-    <div className="font-sans grid relative overflow-hidden grid-rows-[1fr] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <span className="bg-rose-500/50 dark:bg-rose-500/50 pointer-events-none absolute bottom-0 left-1/2 z-0 size-[80%] -translate-x-1/2 translate-y-2/3 rounded-full blur-[200px] transition-transform duration-300 ease-in-out"></span>
-      <div className="w-full flex items-center flex-wrap justify-center gap-10">
-        {config.map((proj) => (
+    <div className="relative grid min-h-screen grid-rows-[1fr] items-center justify-items-center gap-16 overflow-hidden p-8 pb-20 font-sans sm:p-8">
+      <span className="pointer-events-none absolute bottom-0 left-1/2 -z-10 size-[80%] -translate-x-1/2 translate-y-2/3 rounded-full bg-rose-500/50 blur-[200px] transition-transform duration-300 ease-in-out dark:bg-rose-500/50"></span>
+      <div className="flex w-full flex-wrap items-center justify-center gap-10">
+        {config.map(proj => (
           <div
             key={proj.name}
-            className="h-[440px] relative flex-shrink-0 overflow-hidden grid grid-rows-[1fr_auto] max-w-[500px] w-full rounded-2xl border border-white/20 bg-white/5 shadow-lg backdrop-blur-lg"
+            className="relative grid h-[440px] w-full max-w-[500px] flex-shrink-0 grid-rows-[1fr_auto] overflow-hidden rounded-[46px] border border-white/20 bg-white/5 shadow-lg backdrop-blur-lg"
           >
-            <div className="relative group m-4 flex w-full flex-col gap-1 overflow-hidden rounded-xl border border-white/10 shadow-2xl">
+            <div className="group relative m-6 flex w-full flex-col gap-1 overflow-hidden rounded-l-[32px] border border-white/10 shadow-2xl">
               <div
-                className="absolute origin-top-left scale-[0.3] group-hover:scale-[0.35] duration-500 ease-in-out transition-all"
+                className="absolute origin-top-left scale-[0.3] transition-all duration-500 ease-in-out group-hover:scale-[0.35]"
                 style={{
                   // transform: "scale(0.3)", // 缩小比例 30%
-                  width: "333.33%", // = 100% / 0.3
-                  height: "333.33%",
+                  width: '333.33%', // = 100% / 0.3
+                  height: '333.33%'
                 }}
               >
-                <iframe
-                  src={proj.href}
-                  className="w-full h-full"
-                  loading="lazy"
-                />
+                <iframe src={proj.href} className="h-full w-full" loading="lazy" />
               </div>
-              <div className="absolute inset-0 flex items-center justify-center bg-black/30 opacity-0 hover:opacity-100 transition-opacity duration-300">
+              <div className="absolute inset-0 flex items-center justify-center bg-black/30 opacity-0 transition-opacity duration-300 hover:opacity-100">
                 <a
                   href={proj.href}
                   target="_blank"
@@ -53,21 +52,17 @@ export default function Home() {
                     stroke="currentColor"
                     className="size-4 w-0 transition-all group-hover:w-4"
                   >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="m8.25 4.5 7.5 7.5-7.5 7.5"
-                    />
+                    <path strokeLinecap="round" strokeLinejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
                   </svg>
                   <span className="pointer-events-none absolute right-2 bottom-2 z-0 size-5 rounded-full bg-purple-400/50 blur-[6px] transition-transform duration-300 ease-in-out group-hover:translate-1/2 dark:bg-purple-400/40"></span>
                 </a>
               </div>
             </div>
-            <div className="bg-gradient-to-t from-black/50 to-transparent p-5 pt-3">
+            <div className="bg-gradient-to-t from-black/50 to-transparent p-8 pt-2">
               <h3 className="text-2xl font-bold text-white">{proj.name}</h3>
-              <p className="text-xs text-gray-300 mt-1">{proj.desc}</p>
-              <div className="flex items-center gap-2 mt-3">
-                {proj.tags.map((tag) => (
+              <p className="mt-1 text-xs text-gray-300">{proj.desc}</p>
+              <div className="mt-3 flex items-center gap-2">
+                {proj.tags.map(tag => (
                   <span
                     key={tag}
                     className="relative inline-block truncate rounded-full bg-white/70 px-3 py-1 text-xs text-purple-800 shadow ring-1 shadow-black/10 ring-white/30 backdrop-blur-md dark:bg-[rgba(255,255,255,0.15)] dark:text-white dark:shadow-white/10 dark:ring-white/20"
@@ -80,6 +75,40 @@ export default function Home() {
           </div>
         ))}
       </div>
+      <div className="sm:justify-self-end">
+        <a
+          href="https://github.com/jianhuagao"
+          target="_blank"
+          className="group block size-[80px] cursor-pointer rounded-full border border-white/20 bg-white/5 p-1 shadow-2xl backdrop-blur dark:bg-black/10"
+        >
+          <div className="relative flex size-full items-center justify-center overflow-hidden rounded-full border border-white/10 bg-white/20 shadow-2xl transition-all duration-700">
+            {/* SVG 图标 */}
+            <svg
+              className="absolute inset-0 z-10 m-auto size-8 opacity-0 transition-all duration-500 group-hover:opacity-100"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+            >
+              <path
+                fill="currentColor"
+                d="M12 .297c-6.63 0-12 5.373-12 12c0 5.303 3.438 9.8 8.205 11.385c.6.113.82-.258.82-.577c0-.285-.01-1.04-.015-2.04c-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729c1.205.084 1.838 1.236 1.838 1.236c1.07 1.835 2.809 1.305 3.495.998c.108-.776.417-1.305.76-1.605c-2.665-.3-5.466-1.332-5.466-5.93c0-1.31.465-2.38 1.235-3.22c-.135-.303-.54-1.523.105-3.176c0 0 1.005-.322 3.3 1.23c.96-.267 1.98-.399 3-.405c1.02.006 2.04.138 3 .405c2.28-1.552 3.285-1.23 3.285-1.23c.645 1.653.24 2.873.12 3.176c.765.84 1.23 1.91 1.23 3.22c0 4.61-2.805 5.625-5.475 5.92c.42.36.81 1.096.81 2.22c0 1.606-.015 2.896-.015 3.286c0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"
+              />
+            </svg>
+
+            {/* Avatar */}
+            <Image
+              src={avatarUrl}
+              alt="My GitHub Avatar"
+              width={100}
+              height={100}
+              className="absolute inset-0 size-full rounded-full object-cover opacity-100 shadow-2xl transition-all duration-500 group-hover:opacity-0"
+            />
+          </div>
+        </a>
+      </div>
     </div>
   );
+}
+
+function getGithubAvatar(username: string, size: number = 64): string {
+  return `https://avatars.githubusercontent.com/${username}?s=${size}&v=4`;
 }
