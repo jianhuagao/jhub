@@ -2,15 +2,15 @@ import Image from 'next/image';
 
 const config = [
   {
-    name: 'Twinkle',
-    href: 'https://twinkle.jhub.space',
+    name: 'Taurus',
+    href: 'https://taurus.jhub.space',
     desc: 'Free open source Tailwind CSS component library',
     tags: ['react', 'nextjs', 'component-lib', 'tailwindcss']
   },
   {
     name: 'Libran',
     href: 'https://libran.jhub.space',
-    desc: 'Libran is a Next.js and TwinkleUI website example in TypeScript.',
+    desc: 'Libran is a Next.js and TaurusUI website example in TypeScript.',
     tags: ['react', 'nextjs', 'design', 'tailwindcss']
   }
 ];
