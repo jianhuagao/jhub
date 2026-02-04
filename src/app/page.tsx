@@ -1,3 +1,4 @@
+import AnimatedShow from '@/components/AnimatedShow';
 import Image from 'next/image';
 
 const config = [
@@ -24,9 +25,9 @@ export default function Home() {
         {config.map(proj => (
           <div
             key={proj.name}
-            className="relative grid h-[440px] w-full max-w-[500px] flex-shrink-0 grid-rows-[1fr_auto] overflow-hidden rounded-[46px] border border-white/20 bg-white/5 shadow-lg backdrop-blur-lg"
+            className="relative grid h-[440px] w-full max-w-[500px] shrink-0 grid-rows-[1fr_auto] overflow-hidden rounded-[46px] border border-white/20 bg-white/5 shadow-lg backdrop-blur-lg"
           >
-            <div className="group relative m-6 flex w-full flex-col gap-1 overflow-hidden rounded-l-[32px] border border-white/10 shadow-2xl">
+            <div className="group relative m-1 flex w-full flex-col gap-1 overflow-hidden rounded-l-[40px] border border-white/10 shadow-2xl">
               <div
                 className="absolute origin-top-left scale-[0.3] transition-all duration-500 ease-in-out group-hover:scale-[0.35]"
                 style={{
@@ -58,10 +59,26 @@ export default function Home() {
                 </a>
               </div>
             </div>
-            <div className="bg-gradient-to-t from-black/50 to-transparent p-8 pt-2">
-              <h3 className="text-2xl font-bold text-white">{proj.name}</h3>
+            <div className="bg-linear-to-t from-black/50 to-transparent p-8 pt-4">
+              <a href={proj.href} target="_blank" className="flex items-center gap-2">
+                <h3 className="text-2xl font-bold text-white">{proj.name}</h3>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth={1.5}
+                  stroke="currentColor"
+                  className="size-4"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M13.19 8.688a4.5 4.5 0 0 1 1.242 7.244l-4.5 4.5a4.5 4.5 0 0 1-6.364-6.364l1.757-1.757m13.35-.622 1.757-1.757a4.5 4.5 0 0 0-6.364-6.364l-4.5 4.5a4.5 4.5 0 0 0 1.242 7.244"
+                  />
+                </svg>
+              </a>
               <p className="mt-1 text-xs text-gray-300">{proj.desc}</p>
-              <div className="mt-3 flex items-center gap-2">
+              <div className="mt-3 flex flex-wrap items-center gap-2">
                 {proj.tags.map(tag => (
                   <span
                     key={tag}
@@ -75,7 +92,7 @@ export default function Home() {
           </div>
         ))}
       </div>
-      <div className="sm:justify-self-end">
+      <AnimatedShow scale={0.5} inViewShow className="sm:justify-self-end">
         <a
           href="https://github.com/jianhuagao"
           target="_blank"
@@ -104,7 +121,7 @@ export default function Home() {
             />
           </div>
         </a>
-      </div>
+      </AnimatedShow>
     </div>
   );
 }
