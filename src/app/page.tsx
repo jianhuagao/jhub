@@ -13,6 +13,12 @@ const config = [
     href: 'https://libran.jhub.space',
     desc: 'Libran is a Next.js and TaurusUI website example in TypeScript.',
     tags: ['react', 'nextjs', 'design', 'tailwindcss']
+  },
+  {
+    name: 'Balance',
+    href: 'https://balance.jhub.space',
+    desc: 'Balance Intelligence.',
+    tags: ['react', 'nextjs', 'tailwindcss']
   }
 ];
 
